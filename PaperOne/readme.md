@@ -9,7 +9,7 @@
     Tue 30 Jun 2020 10:52 - 11:00 at MSR:Zoom - Evolution Chair(s): Jürgen Cito
  [Paper Link]
 ***
-https://2020.msrconf.org/details/msr-2020-Data-showcase/7/Employing-Contribution-and-Quality-Metrics-for-Quantifying-the-Software-Development-P
+https://issel.ee.auth.gr/wp-content/uploads/2020/05/MSR2020.pdf
 
 ***_Media Link_*** :
     https://youtu.be/tkC4_FtfWHE
