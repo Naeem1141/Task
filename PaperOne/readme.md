@@ -8,7 +8,7 @@
 
     Tue 30 Jun 2020 10:52 - 11:00 at MSR:Zoom - Evolution Chair(s): Jürgen Cito
  [Paper Link]
-***
+ ***
 https://issel.ee.auth.gr/wp-content/uploads/2020/05/MSR2020.pdf
 
 ***_Media Link_*** :
@@ -54,3 +54,85 @@ Software projects, Development operations, effective monitoring.
     > what is the evolution of the quality overtime?
 
     > how does heavy workload affect quality?
+      #### ARCHITECTURE AND TOOLS
+
+      architecture of our platform, which comprises
+      four modules: the Data Downloader, the MongoDB Management
+      System, the Contributions Analyzer, and the Quality Analyzer. These
+      modules are presented in detail in the following paragraphs.
+
+      Data Downloader. It is a Python application that uses the GitHub
+      API4 in order to retrieve all information offered for a given repository.
+      This information includes commits, issues, commit comments,
+      issue comments, issue events, contributors information, repository
+      information, as well as the source code of the repository. Apart from
+      downloading the data as raw .json files, the data downloader offers
+      integration capabilities with MongoDB, which can be used for
+      storing, retrieving and querying the data.
+      
+      MongoDB Management System. We use MongoDB
+      our database
+      management system, which contains all the raw data retrieved
+      from GitHub along with the results of the contributions and the
+      quality analysis.
+
+      Contributions Analyzer. It uses the information retrieved from
+      GitHub in order to compute a series of metrics that quantify the
+      activity of each contributor both in terms of development and
+      operations. Table 1 presents the calculated metrics along with their
+      category (Dev for “development” or Ops for “operations”) and their
+      computation interval (Weekly or Full). Weekly denotes that the
+      respective metric is computed for every week of the project lifecycle
+      (starting from its day one until the present day), while Full refers
+      to metrics that are computed aggregatively taking into account all
+      project data. The results are stored in the collection “metrics”. Given
+      that each contributor may contribute in more than one repositories,
+      each document refers to the combination contributor-repository.
+
+      DATASET CONSTRUCTION
+
+      In a development community that is continuously moving towards
+      component reuse, online software repositories constitute an integral
+      part of the software development process. While this poses a
+      series of challenges in terms of managing software development, it
+      also provides a series of opportunities. These opportunities originate
+      from the deluge of available data that enable quantifying
+      the software development process and building effective evaluation
+      models. Towards this direction, we extracted data residing in
+      GitHub in order to construct a dataset that can be used for these
+      purposes.
+
+     > ###  RESEARCH DIRECTIONS
+      Our dataset can be used to confront several challenges in current
+      research. At first, given that it comprises various software process
+      metrics along with the occurrence of multiple violations, it could be
+      employed for extracting the behavior of the metrics and studying
+      their co-evolution.
+      The integration of semantics can also produce interesting findings
+      about the expertise of individual developers. Our dataset includes
+      source code (e.g. commits), textual (e.g. commit/issue comments),
+      and process (e.g. bursts, activity periods) data that can be
+      mined to extract the areas of expertise of each developer [9]. This
+      information can be then used to construct developer profiles [9]
+      or even visual resumes [20] and find the best match for the team.
+      In an even more practical context, one can also search within a
+      project for “the right developer for the job”. Research in the field of
+      automated bug/feature assignment is broad and current methods
+      use several metrics found in our dataset, including not only issuerelated
+      data (issue text, keywords) [1, 22], but also information
+      about the acquaintance of developers with specific components [3]
+      or even about their latest activity in the project [7].
+
+     >### CONCLUSIONS
+     Mining contribution data from GitHub can offer useful insights on
+      the software development process and produce practical results
+      that may be used to improve it. In this work, we have pursued this
+      research direction by creating a platform that can be employed to
+      produce useful metrics. Furthermore, we have proposed a set of
+      metrics and built a large dataset that can be used to answer multiple
+      research questions. As future work, we plan to augment our dataset,
+      by adding more repositories and, most importantly, more metrics
+      that can cover additional development scenarios, such as supporting
+      various programming languages (e.g. Python, JavaScript). Finally,
+      it would be interesting to study the co-evolution of these metrics
+      with regard to metrics relevant to the quality of the projects.
